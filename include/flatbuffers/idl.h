@@ -400,6 +400,7 @@ struct IDLOptions {
     kBinary = 1 << 8,
     kTs = 1 << 9,
     kJsonSchema = 1 << 10,
+    kMatlab = 1 << 11,
     kMAX
   };
 
@@ -789,6 +790,12 @@ extern bool GenerateJsonSchema(const Parser &parser,
 extern bool GenerateGeneral(const Parser &parser,
                             const std::string &path,
                             const std::string &file_name);
+
+// Generate Matlab files from the definitions in the Parser object.
+// See idl_gen_matlab.cpp.
+extern bool GenerateMatlab(const Parser &parser,
+                           const std::string &path,
+                           const std::string &file_name);
 
 // Generate a schema file from the internal representation, useful after
 // parsing a .proto schema.
